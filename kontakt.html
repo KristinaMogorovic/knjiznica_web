@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knjižnica</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script>
+        function prikaziPoruku() {
+
+            const email = document.getElementById("email").value;
+            const poruka = document.getElementById("poruka").value;
+
+            const httpRequest = new XMLHttpRequest();
+            httpRequest.onreadystatechange = function(){
+                if (httpRequest.readyState == 4){
+                     document.getElementById("prikaz1").innerHTML = httpRequest.responseText;
+                }
+            }
+            httpRequest.open("GET","php/kontakt.php?email="+email+"&upit="+poruka);
+            httpRequest.send();
+
+            alert ("Poruka pošaljena.");
+           
+        }
+    </script>
+
+</head>
+
+<body>
+    <!--navigacija-->
+    <div class="w3-bar w3-black">
+        <a href="pocetna.php" class="w3-bar-item w3-button">Početna </a> <!-- izbornik na vrhu-->
+        <a href="sve_knjige.php" class="w3-bar-item w3-button"> Sve Knjige </a>
+        <a href="oNama.html" class="w3-bar-item w3-button"> O nama </a>
+        <a href="kontakt.html" class="w3-bar-item w3-button"> <b>Kontakt</b> </a>
+        <a href="logIn.html" class="w3-bar-item w3-button">Log in </a>
+
+    </div>
+
+    <div class="w3-container w3-brown">
+        <h1> <b> Kontakt </b> </h1> <!-- naslov-->
+    </div>
+
+    &nbsp; <!-- razmak -->
+    &nbsp;
+    &nbsp;
+    &nbsp;
+
+
+    <div> <b> Broj telefona: </b> 051/123-456 </div>
+    <div> <b> Adresa: </b> Istarska 58, Pazin</div>
+    <div> <b> E-mail: </b> knjiznica.pazin@gmail.hr</div>
+    &nbsp;
+    <p>
+        <b>Radno vrijeme knjižnice: </b> <br>
+        pon-pet: 9.30-19.30 <br>
+        sub: 8.00-13.00 <br>
+        (pauza 10.30-11.00)
+    </p>
+
+    <div>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+    </div>
+
+
+
+
+
+        <!--obrazac-->
+    <div class="w3-container w3-brown">
+        <h2>Obrazac za upit</h2>
+    </div>
+          
+    <form class="w3-container">
+        <label class="w3-text-brown"><b>E-mail</b></label>
+        <input class="w3-input w3-border w3-light-grey" id="email" type="text">
+
+        <p>
+            &nbsp;
+        </p>
+            
+        <label class="w3-text-brown"><b>Upit</b></label>
+        <textarea class="w3-input w3-border w3-light-grey" id="poruka" cols="60" rows="10" > </textarea>
+        
+        <button  onclick="prikaziPoruku()" class="w3-btn w3-brown">Pošalji</button>
+    </form>
+    
+ <!--  nepotrebno
+    <div id="prikaz1"> </div>
+    <script>
+        document.write("<div ></div>");
+        document.getElementById("prikaz1").innerHTML = "";
+
+    </script>
+    -->
+
+    <div>
+        &nbsp;
+    </div>
+
+</body>
+
+</html>
