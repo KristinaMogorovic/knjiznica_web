@@ -1,3 +1,7 @@
+<?php
+   include('php/session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +36,8 @@
         <a href="sveKnjige.html" class="w3-bar-item w3-button"> <b>Sve Knjige </b></a>
         <a href="oNama.html" class="w3-bar-item w3-button"> O nama </a>
         <a href="kontakt.html" class="w3-bar-item w3-button"> Kontakt </a>
-        <a href="logIn.html" class="w3-bar-item w3-button">Log in </a>
+        <a href="logIn.php" class="w3-bar-item w3-button">Log in </a>
+        <a href="Log_out.php" class="w3-bar-item w3-button">Odjava </a>
     </div>
 
     <div class="w3-container w3-brown"> 
