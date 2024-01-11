@@ -2,10 +2,32 @@
    include('obrada_log_in.php');
    session_start();
 
-   if($_SESSION['login_user']==null){
-        echo "Morate se ulogirati kako biste rezervirali knjigu";
-        header("Location: SveKnjige.php");
+   
+   // Get the current page URL
+   $current_page = $_SERVER['REQUEST_URI'];
+   
+   // Check if the user clicked on the registracija_knjiga.php page
+   if (strpos($current_page, 'registracija_knjiga.php') !== false) {
+      if($_SESSION['login_user']==null){
+         //echo "Ulogirajte se!";
+         header("Location: SveKnjige.php");
+       }
+   } elseif (strpos($current_page, 'korisnik.php') !== false) {
+      if($_SESSION['login_user']==null){
+         echo "Ulogirajte se!";
+         header("Location: Log_in.php");
+       }
+   } else {
+       // Handle other pages if needed
+       echo 'User clicked on a different page';
    }
+   
+
+/*
+   if($_SESSION['login_user']==null){
+        echo "Ulogirajte se!";
+        header("Location: SveKnjige.php");
+   }*/
    
    $user_check = $_SESSION['login_user'];
    

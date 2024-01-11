@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!--navigacija-->
     <div class="w3-bar w3-black">
         <a href="pocetna.php" class="w3-bar-item w3-button">Početna </a> <!-- izbornik na vrhu-->
-        <a href="sve_knjige.php" class="w3-bar-item w3-button"> Sve Knjige </a>
+        <a href="registracija_knjiga.php" class="w3-bar-item w3-button"> Sve Knjige </a>
         <a href="oNama.html" class="w3-bar-item w3-button"> O nama </a>
         <a href="kontakt.html" class="w3-bar-item w3-button"> Kontakt </a>
         <a href="logIn.html" class="w3-bar-item w3-button"> <b>Log in </b></a>
