@@ -18,7 +18,7 @@ include('php/session.php');
 
     <!--navigacija-->
     <div class="w3-bar w3-black">
-        <a href="pocetna.php" class="w3-bar-item w3-button">Početna </a> <!-- izbornik na vrhu-->
+        <a href="index.php" class="w3-bar-item w3-button">Početna </a> <!-- izbornik na vrhu-->
         <a href="registracija_knjiga.php" class="w3-bar-item w3-button"> Sve Knjige </a>
         <a href="oNama.html" class="w3-bar-item w3-button"> O nama </a>
         <a href="kontakt.html" class="w3-bar-item w3-button"> Kontakt </a>
