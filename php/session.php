@@ -19,7 +19,7 @@
        }
    } else {
        // Handle other pages if needed
-       echo 'User clicked on a different page';
+       echo ' ';
    }
    
 
