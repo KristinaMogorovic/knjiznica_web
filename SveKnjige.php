@@ -1,3 +1,7 @@
+<?php
+include("php/obrada_log_in.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,15 +31,8 @@
     &nbsp;
 
         <?php
-            $server = "student.veleri.hr";
-            $database = "kmogorovi";
-            $username = "kmogorovi";
-            $password ="6929";
-        
-            $conn = mysqli_connect($server, $username, $password, $database) or 
-                die("Konekcija nije uspješna");
             $query = "SELECT * FROM RWAknjiga";
-            $res = mysqli_query($conn, $query);
+            $res = mysqli_query($db, $query);
             
         ?>
     <div>
@@ -78,7 +75,7 @@
                 echo "</tr>";                     
             }
             
-            mysqli_close($conn);
+            mysqli_close($db);
             ?>
         </table>
     </div>
