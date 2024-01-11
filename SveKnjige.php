@@ -1,8 +1,3 @@
-
-<?php
-   include('php/session.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,22 +8,7 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- vanjski css-->
     
-    <script>
-        function rezerviraj(id_knjiga){
-            //alert(id);
-
-            const httpRequest = new XMLHttpRequest();
-            httpRequest.onreadystatechange = function(){
-                if (httpRequest.readyState == 4){
-                     //document.getElementById("prikaz1").innerHTML = httpRequest.responseText;
-                    alert (httpRequest.responseText);
-                }
-            }
-            httpRequest.open("GET","php/rezerviraj.php?id_knjiga="+id_knjiga);
-            httpRequest.send();
-
-        }
-    </script>
+    
 </head>
 
 <body>
@@ -66,7 +46,6 @@
                     <th><b> Slika </b></th>
                     <th> <b> Osnovne informacije</b></th>
                     <th> <b> Opis </b></th>
-                    <th> <b> Rezerviraj </b></th>
                 </tr>
 
             <?php
@@ -95,17 +74,7 @@
                         echo "<div>" .$row['opis'] . "</div>";
                     echo "</td>";
 
-                    //batun
-                    echo "<td>";
                     
-                    if ($row['ukupan_broj']<= $row['rezervirani']+$row['posudeni']) {
-                        echo "<button disabled>Rezerviraj</button>";
-                    }
-                    else {
-                        //echo "<a href='rezerviraj.php?id=".$row['id']."'><button onclick='rezerviraj()'>Rezerviraj</button></a>";
-                        echo "<button class='w3-brown' onclick='rezerviraj(".$row['id_knjiga'].")'>Rezerviraj</button>";
-                    }
-                    echo "</td>";
                 echo "</tr>";                     
             }
             

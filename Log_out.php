@@ -2,6 +2,8 @@
    session_start();
    
    if(session_destroy()) {
-      header("Location: SveKnjige.html");
+
+      header("Location: Log_in.php");
+ 
    }
 ?>

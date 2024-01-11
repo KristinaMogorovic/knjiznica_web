@@ -1,4 +1,6 @@
 <?php
+    include('session.php');
+
     $id_knjiga = $_GET['id_knjiga'];
 
     $server = "student.veleri.hr";
@@ -28,7 +30,7 @@
         echo $query1;
     }
     
-    $query2 = "INSERT INTO RWArezervacija (id_rezervacija, id_clan, datum_rezervacije, id_knjiga) VALUES (NULL, 3322 ,'2023/12/07', ".$id_knjiga.")";
+    $query2 = "INSERT INTO RWArezervacija (id_rezervacija, id_clan, datum_rezervacije, id_knjiga) VALUES (NULL, $login_session ,'2023/12/07', ".$id_knjiga.")";
     $res2 = mysqli_query($conn, $query2);
     if ($res2) {
         echo "Rezervacija je dodana. ";
