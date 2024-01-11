@@ -1,8 +1,29 @@
 <?php
-    include("php/obrada_log_in.php");
-    session_start();
+include("php/obrada_log_in.php");
+session_start();
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // username and password sent from form
+    $myusername = mysqli_real_escape_string($db, $_POST['iskaznica']);
+    $mypassword = mysqli_real_escape_string($db, $_POST['pin']);
+
+    $sql = "SELECT id_clan FROM RWAclan WHERE email='$myusername' AND lozinka='$mypassword'";
+    $result = mysqli_query($db, $sql);
+    $count = mysqli_num_rows($result);
+
+    // If result matched $myusername and $mypassword, table row must be 1 row
+    if ($count == 1) {
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $_SESSION['login_user'] = $row['id_clan'];
+
+        //header("location: pocetna.php");
+        echo "Pozdrav. Prijavljeni ste.";
+    } else {
+        $error = "Your Login Name or Password is invalid";
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +35,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- vanjski css-->
 
     <script>
-        function prikaziPoruku(){
+       /* function prikaziPoruku(){
             //vezano za file obrada_log_in.php
 
             const br_iskaznica = document.getElementById("iskaznica").value;
@@ -35,11 +56,14 @@
             document.getElementById("prikaz").innerHTML = pin;
             alert("ulogirani ste.");
             
+            
 
         }//function zagrada
+        */
         
 
     </script>
+
 
 
 </head>
@@ -66,23 +90,22 @@
     </div>
 
     <table> 
-        <tr>
-            <td> </td>
-            <td>
-                <form class="w3-container"> 
-                    <label class="w3-text-brown"><b>Broj iskaznice:</b></label>
-                    <input name="iskaznica" class="w3-input w3-border w3-light-grey" type="text">
-                </form>
-            </td>
-            <td> </td>
-        </tr>
+        
          
         <tr>
             <td> </td>
             <td>
-                <form class="w3-container">
+                <form class="w3-container" action="" method="POST">
+                    <label class="w3-text-brown"><b>Broj iskaznice:</b></label>
+                    <input id="iskaznica" name="iskaznica" class="w3-input w3-border w3-light-grey" type="text">
+
+                    <br/>
                     <label class="w3-text-brown"><b>Pin:</b></label>
-                    <input required name="pin" class="w3-input w3-border w3-light-grey" type="password" >
+                    <input required id="pin" name="pin" class="w3-input w3-border w3-light-grey" type="password" >
+
+                    <br/>
+                    <input type = "submit" value = " Submit " onclick="prikaziPoruku()" class="w3-btn w3-brown" /><br />
+
                 </form>
             </td>
             <td> </td>
@@ -91,6 +114,7 @@
             <td> </td>
             <td>
                 <button onclick="prikaziPoruku()" class="w3-btn w3-brown">Log in</button>
+                <input type = "submit" value = " Submit "/><br />
             </td>
         </tr>
 
