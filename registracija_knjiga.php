@@ -76,7 +76,7 @@
                     //slika
                     echo "<td>";
                         echo "<div>";
-                        echo "<img src='".$row['slika']."' alt='' width='200'>";
+                        echo "<a href='".$row['vanjska_poveznica']."' target='_blank'> <img src='".$row['slika']."' alt='' width='200'></a>";
                         echo "</div>";
                     echo "</td>";
 
