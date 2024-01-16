@@ -58,7 +58,7 @@
             $res = mysqli_query($conn, $query);
             
         ?>
-    <div>
+    <div class="w3-container w3-responsive">
         <table border="1px"  class="w3-table-all">
                 <thread>
                 <!--zaglavlje-->

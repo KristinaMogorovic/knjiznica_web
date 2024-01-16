@@ -63,7 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
 <div class="w3-display-middle">
-
+    <div class="w3-container w3-responsive">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
     <table> 
         
          
@@ -92,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </td>
         </tr>
 
-    </table> 
+    </table> </div>
 
     <div id="prikaz"> </div>
 </div>

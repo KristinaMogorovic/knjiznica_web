@@ -36,12 +36,15 @@ include('php/session.php');
 
      <div class="w3-container w3-brown">
         <h2> Registracija članova knjižnice</h2>
+        
 
-    </div>
-<div class="w3-display-middle">
+    </div >
+    <div class="w3-display-middle w3-container w3-responsive" >
 
 
     <div style="font-size: 18px">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
         Pozdrav. 
